@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { useParams, withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Article(props) {
     const [article, setArticle] = useState({});
@@ -24,4 +24,4 @@ function Article(props) {
     )
 }
 
-export default withRouter(Article);
+export default Article;
