@@ -18,6 +18,7 @@ function Home() {
         }
         fetchArticleList();
     }, [articleList]);
+    
     return(
         <ul>{articleList}</ul>
     )

@@ -3,17 +3,12 @@ import React from 'react';
 const Create = () => {
     async function handleSubmit(e) {
         e.preventDefault();
-        const title = document.getElementById("title").value;
-        const body = document.getElementById("content").value;
-        const authors = document.getElementById("authors").value;
-        const date = new Date();
-        const postedBy = authors;
         const data = {
-            title,
-            body,
-            authors,
-            date,
-            postedBy,
+            title: document.getElementById("title").value,
+            body: document.getElementById("content").value,
+            authors: document.getElementById("authors").value,
+            date: new Date(),
+            postedBy: document.getElementById("authors").value,
         }
         const options = {
             method: "POST",
