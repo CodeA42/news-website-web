@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -8,6 +8,7 @@ import Navbar from './components/navigation/Navbar';
 
 import Home from './components/pages/Home';
 import CreateArticle from './components/article/Create';
+import Article from './components/article/Article';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           <Route exact path="/article/create">
             <CreateArticle />
           </Route>
-          
+          <Route path="/article/:id">
+            <Article/>
+          </Route>
         </Switch>
       </Router>
     </div>
