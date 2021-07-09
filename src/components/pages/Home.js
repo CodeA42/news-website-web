@@ -2,26 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 import ArticleList from '../article/List';
 
-// class Home extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             ArticleList: [],
-//         }
-//     }
-
-//     async componentDidMount() {
-//         const ArticleList = await getArticleList();
-//         this.setState({...this.state, ArticleList})
-//     }
-
-//     render() {
-//         return(
-//             <ul>{this.state.ArticleList}</ul>
-//         )
-//     }
-// }
-
 function Home() {
     const [articleList, setArticleList] = useState([]);
 
