@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const Card = (props) => {
     return (
         <h2>
-            <a href={"article/" + props.article._id}>
+            <Link to={`article/${props.article._id}`}>
                 {props.article.title}
-            </a>
+            </Link>
         </h2>
     )
 }
