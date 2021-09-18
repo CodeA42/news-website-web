@@ -16,7 +16,7 @@ const Register = () => {
       },
     };
     try {
-        const res = await fetch("http://localhost:2345/users/login", options);
+        const res = await fetch("http://localhost:2345/users/register", options);
         const data = await res.json();
         console.log(data);
     } catch (e) {
