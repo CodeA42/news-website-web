@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/">
+          <Route exact path={["/", "/home"]}>
             <Home />
           </Route>
           <Route exact path="/article/create">
@@ -27,10 +27,10 @@ function App() {
           <Route path="/article/:id">
             <Article/>
           </Route>
-          <Route path="/profile/login">
+          <Route path="/login">
             <Login/>
           </Route>
-          <Route path="/profile/register">
+          <Route path="/register">
             <Register/>
           </Route>
         </Switch>
