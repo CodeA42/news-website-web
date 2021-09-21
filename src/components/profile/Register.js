@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const history = useHistory();
+  
   async function handleSubmit(e) {
     e.preventDefault();
     const data = {
@@ -22,13 +23,13 @@ const Register = () => {
         const res = await fetch("http://localhost:2345/users/register", options);
         if(res.status === 200) {
           const data = await res.json();
-          console.log(data);
           history.push('/login', {username: data.username});
         }
     } catch (e) {
         console.error(e);
     }
   }
+
   return (
     <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>

@@ -1,6 +1,9 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
+  let location = useLocation();
+
   async function handleSubmit(e) {
     e.preventDefault();
     const data = {
@@ -18,15 +21,15 @@ const Login = () => {
     try {
         const res = await fetch("http://localhost:2345/users/login", options);
         const data = await res.json();
-        console.log(data);
     } catch (e) {
         console.error(e);
     }
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
-      <input type="text" id="username" name="username" />
+      <input type="text" id="username" name="username" value={location.state?.username} />
 
       <label htmlFor="password">Password</label>
       <input type="password" id="password" name="password" />
