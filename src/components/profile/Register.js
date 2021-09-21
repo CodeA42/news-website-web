@@ -1,9 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
   async function handleSubmit(e) {
     e.preventDefault();
     const data = {
+        email: document.getElementById("email").value,
         username: document.getElementById("username").value,
         password: document.getElementById("password").value,
         date: new Date(),
@@ -17,8 +20,11 @@ const Register = () => {
     };
     try {
         const res = await fetch("http://localhost:2345/users/register", options);
-        const data = await res.json();
-        console.log(data);
+        if(res.status === 200) {
+          const data = await res.json();
+          console.log(data);
+          history.push('/login', {username: data.username});
+        }
     } catch (e) {
         console.error(e);
     }
@@ -34,8 +40,8 @@ const Register = () => {
         <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
 
-        <label htmlFor="re-password">Repeat password</label>
-        <input type="password" id="re-password" name="re-password" />
+        <label htmlFor="repeat-password">Repeat password</label>
+        <input type="password" id="repeat-password" name="repeat-password" />
 
       <input type="submit" />
     </form>
