@@ -20,6 +20,7 @@ const Login = () => {
     };
     try {
         const res = await fetch("http://localhost:2345/users/login", options);
+        console.log(res);
         const data = await res.json();
     } catch (e) {
         console.error(e);
@@ -29,7 +30,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
-      <input type="text" id="username" name="username" value={location.state?.username} />
+      <input type="text" id="username" name="username" defaultValue={location.state?.username} />
 
       <label htmlFor="password">Password</label>
       <input type="password" id="password" name="password" />
