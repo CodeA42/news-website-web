@@ -1,15 +1,15 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 const Login = () => {
   let location = useLocation();
+  let history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
     const data = {
         username: document.getElementById("username").value,
         password: document.getElementById("password").value,
-        date: new Date(),
     };
     const options = {
         method: "POST",
@@ -20,8 +20,10 @@ const Login = () => {
     };
     try {
         const res = await fetch("http://localhost:2345/users/login", options);
-        console.log(res);
         const data = await res.json();
+        console.log(data);
+        // history.push(`${res.url}`);
+        // const data = await res.json();
     } catch (e) {
         console.error(e);
     }
