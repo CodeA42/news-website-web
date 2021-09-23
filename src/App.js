@@ -11,6 +11,7 @@ import CreateArticle from './components/article/Create';
 import Article from './components/article/Article';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import Profile from './components/user/Profile';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Register/>
+          </Route>
+          <Route path='/:id'>
+            <Profile/>
           </Route>
         </Switch>
       </Router>
