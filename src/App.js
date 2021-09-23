@@ -9,8 +9,8 @@ import Navbar from './components/navigation/Navbar';
 import Home from './components/pages/Home';
 import CreateArticle from './components/article/Create';
 import Article from './components/article/Article';
-import Login from './components/profile/Login';
-import Register from './components/profile/Register';
+import Login from './components/user/Login';
+import Register from './components/user/Register';
 
 function App() {
   return (
