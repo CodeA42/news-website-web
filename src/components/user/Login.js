@@ -20,10 +20,10 @@ const Login = () => {
     };
     try {
         const res = await fetch("http://localhost:2345/users/login", options);
-        const data = await res.json();
-        console.log(data);
-        // history.push(`${res.url}`);
-        // const data = await res.json();
+        if(res.status === 200) {
+          const data = await res.json();
+          history.push(`/${data._id}`);
+        }
     } catch (e) {
         console.error(e);
     }
