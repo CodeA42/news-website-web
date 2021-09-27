@@ -20,7 +20,7 @@ const Register = () => {
       },
     };
     try {
-        const res = await fetch("http://localhost:2345/users/register", options);
+        const res = await fetch("http://localhost:3333/register", options);
         if(res.status === 200) {
           const data = await res.json();
           history.push('/login', {username: data.username});
