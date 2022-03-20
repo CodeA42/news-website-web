@@ -14,15 +14,19 @@ const Login = () => {
     const options = {
         method: "POST",
         body: JSON.stringify(data),
+        credentials: 'include',
         headers: {
         "Content-Type": "application/json",
       },
     };
     try {
         const res = await fetch("http://localhost:3333/login", options);
+        console.log(document.cookie);
         if(res.status === 200) {
           const data = await res.json();
           history.push(`/${data.userId}`);
+          console.log(`Access Token - ${data.accessToken}`);
+          // console.log(data.refreshToken);
         }
     } catch (e) {
         console.error(e);
