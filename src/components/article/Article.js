@@ -8,7 +8,12 @@ function Article(props) {
 
     useEffect(() => {
         async function fetchArticle(id) {
-            const res = await fetch(`http://localhost:2345/articles/${id}`);
+            const res = await fetch(`http://localhost:2345/articles/${id}`,
+            {
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const article = await res.json();
         
             setArticle(article);
