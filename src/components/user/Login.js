@@ -25,8 +25,7 @@ const Login = () => {
         if(res.status === 200) {
           const data = await res.json();
           history.push(`/${data.userId}`);
-          console.log(`Access Token - ${data.accessToken}`);
-          // console.log(data.refreshToken);
+          localStorage.setItem('accessToken', data.accessToken);
         }
     } catch (e) {
         console.error(e);
