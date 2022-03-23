@@ -10,6 +10,7 @@ import Home from './components/pages/Home';
 import CreateArticle from './components/article/Create';
 import Article from './components/article/Article';
 import Login from './components/user/Login';
+import Logout from './components/user/Logout';
 import Register from './components/user/Register';
 import Profile from './components/user/Profile';
 
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login/>
+          </Route>
+          <Route path="/logout">
+            <Logout/>
           </Route>
           <Route path="/register">
             <Register/>
