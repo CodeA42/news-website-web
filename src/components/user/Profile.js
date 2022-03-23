@@ -8,7 +8,11 @@ function Profile(props) {
 
     useEffect(() => {
         async function fetchUser(id) {
-            const res = await fetch(`http://localhost:2345/users/${id}`);
+            const res = await fetch(`http://localhost:2345/users/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const user = await res.json();
         
             setUser(user);
