@@ -1,11 +1,14 @@
-import {useHistory} from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../context/user"
 
-function LogOut(){
-    let history = useHistory();
+function Logout(){
     localStorage.clear();
-    history.push("");
 
-    return null;
+    const user = useContext(UserContext);
+    user.setUser(null);
+
+    return <Redirect to='/'/>;
 }
 
-export default LogOut;
+export default Logout;
