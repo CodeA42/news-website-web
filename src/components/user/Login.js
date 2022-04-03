@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import { UserContext } from "../context/user";
 
 const Login = () => {
-  let location = useLocation();
-  let history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
+  const userContext = useContext(UserContext);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -21,11 +23,11 @@ const Login = () => {
     };
     try {
         const res = await fetch("http://localhost:3333/login", options);
-        console.log(document.cookie);
         if(res.status === 200) {
           const data = await res.json();
-          history.push(`/${data.userId}`);
+          history.push(`/${data.user.id}`);
           localStorage.setItem('accessToken', data.accessToken);
+          userContext.setUser(data.user);
         }
     } catch (e) {
         console.error(e);
