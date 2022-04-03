@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import { UserContext } from "../context/user";
 
-import { Link } from 'react-router-dom';
+function LogoutButton(){
+    return <Link to="/logout">Logout</Link>
+}
+
+function LoginButton(){
+    return <Link to="/login">Login</Link>
+}
 
 const Navbar = () => {
+    const [isLoggedIn, setLogin] = useState(!!localStorage.getItem('accessToken'));
+    console.log('Navbar()')
+    const user = useContext(UserContext);
+
+    useEffect(() => {
+        console.log(user);
+        if(user.user){
+            setLogin(true)
+            console.log("loggedIn");
+        } else {
+            setLogin(false)
+            console.log("loggedOut");
+        }
+    },[user.user, user])
+
     return(
         <nav>
             <ul>
@@ -15,11 +38,8 @@ const Navbar = () => {
                 <li>
                     <Link to="/register">Register</Link>
                 </li>
-                <li>
-                    <Link to="/login">Login</Link>
-                </li>
-                <li>
-                    <Link to="/logout">Logout</Link>
+                <li key={isLoggedIn}>
+                    {isLoggedIn ? LogoutButton() : LoginButton()}
                 </li>
             </ul>
         </nav>
