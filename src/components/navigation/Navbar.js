@@ -12,17 +12,13 @@ function LoginButton(){
 
 const Navbar = () => {
     const [isLoggedIn, setLogin] = useState(!!localStorage.getItem('accessToken'));
-    console.log('Navbar()')
     const user = useContext(UserContext);
 
     useEffect(() => {
-        console.log(user);
         if(user.user){
             setLogin(true)
-            console.log("loggedIn");
         } else {
             setLogin(false)
-            console.log("loggedOut");
         }
     },[user.user, user])
 
